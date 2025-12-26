@@ -17,6 +17,8 @@
       perSystem =
         { pkgs, self', ... }:
         {
+          packages.default = pkgs.callPackage ./default.nix { };
+
           devShells.default = pkgs.mkShellNoCC {
             packages = with pkgs; [
               texlive.combined.scheme-full
