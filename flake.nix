@@ -8,6 +8,10 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    moderncv = {
+      url = "github:moderncv/moderncv";
+      flake = false;
+    };
   };
 
   outputs =
@@ -17,12 +21,13 @@
       perSystem =
         { pkgs, self', ... }:
         {
-          packages.default = pkgs.callPackage ./default.nix { };
+          packages.default = pkgs.callPackage ./default.nix {
+            inherit (inputs) moderncv;
+          };
 
           devShells.default = pkgs.mkShellNoCC {
             packages = with pkgs; [
               texlive.combined.scheme-full
-              texlivePackages.latexmk
               texlab
             ];
           };

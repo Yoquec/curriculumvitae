@@ -1,160 +1,56 @@
-% =========================
-% Professional CV Template
-% ATS-friendly, clean, and skimmable
-% Compile: pdfLaTeX (default) or LuaLaTeX/XeLaTeX with minor font tweaks
-% =========================
+% Minimal moderncv example to test build
+\documentclass[11pt,a4paper,sans]{moderncv}
 
-\documentclass[11pt,a4paper]{article}
+% moderncv themes
+\moderncvstyle{classic} % style: 'casual', 'classic', 'banking', 'oldstyle', 'fancy'
+\moderncvcolor{blue}    % color: 'blue', 'orange', 'green', 'red', 'purple', 'grey', 'black'
 
-% ---------- Page layout ----------
-\usepackage[a4paper,margin=1.6cm]{geometry}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{4pt}
+% Character encoding
+\usepackage[utf8]{inputenc}
 
-% ---------- Typography ----------
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc} % remove if using LuaLaTeX/XeLaTeX
-\usepackage{lmodern}        % professional, readable default
-\usepackage{microtype}
+% Adjust page margins
+\usepackage[scale=0.75]{geometry}
 
-% ---------- Useful packages ----------
-\usepackage{enumitem}
-\usepackage{tabularx}
-\usepackage{array}
-\usepackage{xcolor}
-\usepackage[hidelinks]{hyperref}
+% Personal data
+\name{John}{Doe}
+\title{Software Engineer}
+\address{123 Main Street}{12345 City}{Country}
+\phone[mobile]{+1~(234)~567~890}
+\email{john.doe@example.com}
+\homepage{www.johndoe.com}
+\social[linkedin]{johndoe}
+\social[github]{johndoe}
 
-% ---------- Lists ----------
-\setlist[itemize]{leftmargin=*,nosep,topsep=2pt}
-\setlist[enumerate]{leftmargin=*,nosep,topsep=2pt}
+\begin{document}
 
-% ---------- Colors (conservative for print/ATS) ----------
-\definecolor{Accent}{HTML}{1F2937} % near-slate
-\definecolor{Muted}{HTML}{4B5563}  % gray
+\makecvtitle
 
-% ---------- Column types ----------
-\newcolumntype{L}{>{\raggedright\arraybackslash}X}
-\newcolumntype{R}{>{\raggedleft\arraybackslash}p{2.8cm}}
-
-% ---------- Simple CV macros ----------
-\newcommand{\cvsection}[1]{%
-  \vspace{8pt}
-  {\large\color{Accent}\textbf{#1}}\par
-  \vspace{2pt}
-  \hrule height 0.4pt
-  \vspace{6pt}
-}
-
-% Entry with title/company on left, dates on right, optional subtitle line, then bullets.
-% Usage:
-% \cventry{Role Title}{Company}{City, Country}{YYYY--YYYY}{
-%   \item ...
-% }
-\newcommand{\cventry}[5]{%
-  \begin{tabularx}{\textwidth}{L R}
-    \textbf{#1} --- #2 & \textcolor{Muted}{#4} \\
-  \end{tabularx}
-  \textcolor{Muted}{#3}\par
-  \vspace{2pt}
+\section{Experience}
+\cventry{2020--Present}{Software Engineer}{Tech Company}{City}{}{
   \begin{itemize}
-    #5
+    \item Developed and maintained web applications
+    \item Collaborated with cross-functional teams
+    \item Improved system performance by 30\%
   \end{itemize}
 }
 
-% Compact single-line entry (e.g., Certifications)
-\newcommand{\cvline}[2]{%
-  \begin{tabularx}{\textwidth}{L R}
-    #1 & \textcolor{Muted}{#2} \\
-  \end{tabularx}
+\cventry{2018--2020}{Junior Developer}{Startup Inc}{City}{}{
+  \begin{itemize}
+    \item Built RESTful APIs
+    \item Implemented CI/CD pipelines
+  \end{itemize}
 }
 
-% ---------- Document ----------
-\begin{document}
+\section{Education}
+\cventry{2014--2018}{Bachelor of Science in Computer Science}{University Name}{City}{\textit{GPA: 3.8/4.0}}{}
 
-% ---------- Header ----------
-{\LARGE \textbf{Your Name}}\par
-\vspace{2pt}
+\section{Skills}
+\cvitem{Languages}{Python, JavaScript, Go, Java}
+\cvitem{Frameworks}{React, Node.js, Django, Spring}
+\cvitem{Tools}{Docker, Kubernetes, Git, AWS}
 
-% Keep this line dense and ATS-friendly (no icons).
-Sevilla, Spain \,|\, +34 600 000 000 \,|\, \href{mailto:you@email.com}{you@email.com} \,|\,%
-\href{https://www.linkedin.com/in/yourhandle}{linkedin.com/in/yourhandle} \,|\,%
-\href{https://github.com/yourhandle}{github.com/yourhandle} \,|\,%
-\href{https://your-portfolio.com}{your-portfolio.com}
-
-\vspace{6pt}
-\textcolor{Muted}{%
-Software Engineer with X years of experience in \emph{domain/stack}. Focused on shipping reliable products, improving performance, and collaborating cross-functionally.%
-}
-
-% ---------- Experience ----------
-\cvsection{Experience}
-
-\cventry
-  {Senior Software Engineer}
-  {Company Name}
-  {Sevilla, Spain (Hybrid)}
-  {2022--Present}
-  {
-    \item Led development of \emph{project/product}, improving \(X\) by \(Y\%\) (e.g., latency, conversion, cost).
-    \item Designed and shipped \emph{feature/system} using (Tech A, Tech B), serving \(N\) requests/day.
-    \item Reduced incidents by introducing \emph{monitoring/testing/runbooks}; improved MTTR from \(X\) to \(Y\).
-    \item Partnered with Product/Design to deliver roadmap items; mentored \(N\) engineers through reviews and pairing.
-  }
-
-\cventry
-  {Software Engineer}
-  {Previous Company}
-  {City, Country}
-  {2019--2022}
-  {
-    \item Built and maintained \emph{service/app}, integrating with \emph{APIs/3rd parties}.
-    \item Improved CI/CD pipeline (tests, caching, deploys), cutting build time by \(X\%\).
-    \item Implemented observability: metrics, logs, traces; established SLOs for critical endpoints.
-  }
-
-% ---------- Projects (optional but valuable, especially for SWE) ----------
-\cvsection{Selected Projects}
-
-\cventry
-  {Project Name}
-  {Open Source / Personal}
-  {Tech: Go, Postgres, Docker (example)}
-  {2024}
-  {
-    \item Built \emph{what it does} and achieved \emph{measurable result} (users, stars, performance, etc.).
-    \item Highlight one interesting technical decision: \emph{architecture / scaling / correctness}.
-  }
-
-% ---------- Skills ----------
-\cvsection{Skills}
-
-\begin{tabularx}{\textwidth}{L}
-\textbf{Languages:} Python, TypeScript, Go, Java (example) \\
-\textbf{Backend:} REST, gRPC, PostgreSQL, Redis, Kafka, Microservices \\
-\textbf{Frontend:} React, Next.js, HTML/CSS (optional) \\
-\textbf{Cloud/DevOps:} AWS/GCP/Azure, Docker, Kubernetes, Terraform, CI/CD \\
-\textbf{Practices:} System design, testing, code review, observability, security basics
-\end{tabularx}
-
-% ---------- Education ----------
-\cvsection{Education}
-
-\cvline{\textbf{B.S. in Computer Science} --- University Name, City}{2015--2019}
-\textcolor{Muted}{Relevant coursework: Distributed Systems, Databases, Algorithms (optional)}\par
-
-% ---------- Certifications (optional) ----------
-\cvsection{Certifications}
-
-\cvline{AWS Certified Solutions Architect (example)}{2024}
-\cvline{CKA / Azure / GCP (example)}{2023}
-
-% ---------- Additional (optional) ----------
-\cvsection{Additional}
-
-\begin{tabularx}{\textwidth}{L}
-\textbf{Languages:} English (C1), Spanish (Native) \\
-\textbf{Interests:} Hiking, music, open-source (keep brief and professional)
-\end{tabularx}
+\section{Projects}
+\cvitem{Project A}{Open-source tool for automated deployment, 500+ GitHub stars}
+\cvitem{Project B}{Personal blog with 10k monthly visitors}
 
 \end{document}
-
