@@ -2,7 +2,7 @@
   lib,
   stdenvNoCC,
   texlive-combined,
-  moderncv,
+  template,
 }:
 
 let
@@ -25,9 +25,10 @@ stdenvNoCC.mkDerivation {
   ];
 
   buildPhase = ''
-    # Make moderncv files available to LaTeX
-    export TEXINPUTS=".:${moderncv}:"
-    pdflatex -interaction=nonstopmode cv.tex
+    # Expose the template path to xelatex
+    export TEXINPUTS=".:${template}:"
+    (lualatex -interaction=nonstopmode cv.tex) \
+        || (biber cv && lualatex -interaction=nonstopmode cv.tex || return 0)
   '';
 
   installPhase = ''

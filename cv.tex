@@ -1,56 +1,196 @@
-% Minimal moderncv example to test build
-\documentclass[11pt,a4paper,sans]{moderncv}
+\documentclass[a4paper]{article}
 
-% moderncv themes
-\moderncvstyle{classic} % style: 'casual', 'classic', 'banking', 'oldstyle', 'fancy'
-\moderncvcolor{blue}    % color: 'blue', 'orange', 'green', 'red', 'purple', 'grey', 'black'
+\errorcontextlines=5 % Adjust the number to show more or fewer lines
 
-% Character encoding
-\usepackage[utf8]{inputenc}
+\makeatletter
+\usepackage[lists, coloraccent=0033a0]{cv}
+\usepackage{eurosym}
+\makeatother
 
-% Adjust page margins
-\usepackage[scale=0.75]{geometry}
+% **************************************************
+% Personal Information
+% **************************************************
+\name{Andres}{Navarro Pedregal}
 
-% Personal data
-\name{John}{Doe}
-\title{Software Engineer}
-\address{123 Main Street}{12345 City}{Country}
-\phone[mobile]{+1~(234)~567~890}
-\email{john.doe@example.com}
-\homepage{www.johndoe.com}
-\social[linkedin]{johndoe}
-\social[github]{johndoe}
+\social{
+  \socialitem{me@andresnav.com}{mailto:me@andresnav.com},
+  \socialitem{andresnav.com}{https://andresnav.com},
+  \socialitem{github.com/andres-nav}{https://github.com/andres-nav},
+  \socialitem{@znavandr~}{https://code.amazon.com/reviews/from-user/znavandr?open=true&pending=true&shipped=true&start_time=2025-01-01&end_time=2026-01-01}
+}
+
+\summary{
+  PhD student at ETH Zurich's CORES Lab  researching \highlight{distributed systems, fault tolerance, and memory management for datacenter and cloud-native applications}. Experience building production distributed systems at Amazon (smart grid energy systems across 100+ sites), high-performance computing at CERN, and autonomous UAV systems with edge computing at UC3M. Published 5 papers on distributed autonomous systems, edge computing, and networking. \highlight{Research idea on LLM serverless serving with CXL in page~}.
+}
+
+\hypersetup{
+	pdfauthor=Andres Navarro Pedregal,
+	pdftitle=Andres Navarro Pedregal | Amazon Applied Scientist Internship CV,
+	pdfsubject=CV for Amazon Applied Scientist Internship - Distributed Systems \& HPC,
+	pdfkeywords={CV, Andres Navarro Pedregal, Amazon, Applied Scientist, Distributed Systems, High Performance Computing, Fault Tolerance, CXL, Datacenter Architecture, Cloud Computing, Serverless, Network Architecture, Parallel Computing},
+	hidelinks
+}
 
 \begin{document}
 
-\makecvtitle
+\fontsize{9pt}{10.8pt}\selectfont
 
-\section{Experience}
-\cventry{2020--Present}{Software Engineer}{Tech Company}{City}{}{
-  \begin{itemize}
-    \item Developed and maintained web applications
-    \item Collaborated with cross-functional teams
-    \item Improved system performance by 30\%
-  \end{itemize}
-}
+\makecvheader[L]%
 
-\cventry{2018--2020}{Junior Developer}{Startup Inc}{City}{}{
-  \begin{itemize}
-    \item Built RESTful APIs
-    \item Implemented CI/CD pipelines
-  \end{itemize}
-}
+\makecvfooter%
+{}
+{}
+{}
 
+% **************************************************
+% Education
+% **************************************************
 \section{Education}
-\cventry{2014--2018}{Bachelor of Science in Computer Science}{University Name}{City}{\textit{GPA: 3.8/4.0}}{}
 
-\section{Skills}
-\cvitem{Languages}{Python, JavaScript, Go, Java}
-\cvitem{Frameworks}{React, Node.js, Django, Spring}
-\cvitem{Tools}{Docker, Kubernetes, Git, AWS}
+\begin{cvitemizeentry}%
+  {PhD Student in Computer Science}
+  {Sept 2025~--~Expected June 2031}
+  {ETH Zurich}
+  {CORES Lab~-~Concurrent and Resilient Systems }
+  {Zurich, Switzerland}
+  \item Selected for Direct Doctorate program (8 candidates), one of Europe's most competitive CS scholarships for research.
+  \item Supervised by Prof.~Michal Friedman~, part of the ETH Systems Group~.
+  \item Exploring fault tolerance, distributed systems optimizations for large-scale applications, and energy friendly systems.
+  \item Currently supervising a Master Thesis on \textit{distributed carbon-efficient orchestration for serverless workloads}.
+\end{cvitemizeentry}
 
-\section{Projects}
-\cvitem{Project A}{Open-source tool for automated deployment, 500+ GitHub stars}
-\cvitem{Project B}{Personal blog with 10k monthly visitors}
+\begin{cvitemizeentry}%
+  {MSc in Computer Science}
+  {Sept 2025~--~Expected June 2027}
+  {ETH Zurich}
+  {Focus: Distributed Systems, Formal Methods, Concurrency}
+  {Zurich, Switzerland}
+  \item Core courses: Principles of Distributed Computing (consensus protocols, fault tolerance, P2P systems),
+  Formal Foundations of Programming Languages (type safety, termination, Rust unsafe code),
+  Information Security Laboratory (protocol and program safety, formal verification of protocols).
+\end{cvitemizeentry}
+
+% Use GPA converter: https://gpa.eng.uci.edu/node/281
+\begin{cvitemizeentry}%
+  {Dual Bachelor in Data Science \& Electrical and Electronics Engineering}
+  {Sept 2020~--~Feb 2025}
+  {University Carlos III of Madrid}
+  {Among Spain's top engineering universities}
+  {Madrid, Spain}
+  \item Achieved 12 honors, 3 scholarships, 8.29/10. Completed 372 ECTS in 4.5 years, top and first student graduated from the bachelor.
+  \item Bachelor thesis: ``Applications of Autonomous Drones for Non-Terrestrial Networks in Remote Areas''~.
+  \item Bachelor thesis: ``Proof-of-Concept Design of a Distributed IoT System with Edge Computing \& Storage Requirements''~.
+\end{cvitemizeentry}
+
+% **************************************************
+% Experience
+% **************************************************
+\section{Experience}
+
+\begin{cvitemizeentry}%
+  {Software Development Engineer}
+  {Feb 2025~--~Present}
+  {Amazon}
+  {@znavandr (Manager: @mccamejo)}
+  {Madrid, Spain}
+  \item Implemented an energy management system, Helios Alchemist~, across 100+ facilities to monitor and control energy devices.
+  \item Designed \highlight{scalable architecture}~ with distributed state management, fault tolerance, and telemetry across 50+ nodes.
+  \item Built \highlight{distributed deployment pipeline} with rollback capabilities and monitoring infrastructure achieving 99.9\% uptime.
+  \item Technologies: Python, Java, TypeScript, AWS CDK, Amazon internal tools (idPrism, GDL, Midway, Hydra, Brazil, etc.).
+\end{cvitemizeentry}
+
+\begin{cvitemizeentry}%
+  {Research Intern~--~High-Performance Computing}
+  {June 2024~--~Aug 2024}
+  {CERN}
+  {World's largest particle physics laboratory}
+  {Geneva, Switzerland}
+  \item Selected for Summer School (300/10k applicants) and OpenLab program (20/3k applicants).
+  \item Optimized \highlight{distributed computing} software (Python, Bash, C++) for high-energy detector systems, reducing runtime by 25\%.
+  \item Published research on performance optimization for parallel data processing in gaseous detector systems~.
+  \item Experience with \highlight{high-performance computing}, performance profiling, and large-scale data processing (TB+ datasets).
+\end{cvitemizeentry}
+
+
+\begin{cvitemizeentry}%
+  {Research Assistant~--~Distributed Systems \& Edge Computing}
+  {July 2023~--~June 2025}
+  {Telematics Department, UC3M}
+  {Research group with 10+ researchers}
+  {Madrid, Spain}
+  \item Built \highlight{distributed multi-agent autonomous system} with real-time edge computing and fault tolerance for UAV swarms.
+  \item Designed \highlight{distributed parking management system} across 15+ devices with network optimization and state synchronization.
+  \item Published 5 research papers on distributed autonomous systems, edge computing, and non-terrestrial networks~.
+\end{cvitemizeentry}
+
+% \cventry%
+% {Cloud \& Machine Learning Team Lead Engineer} % Job title
+% {SAETA} % Organization
+% {University Association for Autonomous Drones}
+% {Madrid, Spain} % Location
+% {Feb 2022~--~June 2024} % Date(s)
+% \begin{itemize} % Description(s) of tasks/responsibilities
+% 	\item Implemented ML pipelines with AWS Rekognition and AWS StepFunctions, reducing data processing time by 50\%
+% 	\item Architected and maintained a cloud infrastructure, leveraging Terraform, AWS Organizations, and IAM
+% 	\item Recruited and managed a team of 5+ engineers, providing technical guidance and mentoring in cloud and ML
+% 	\item \highlight{Presented the project to 30+ companies} at the AWS Summit Madrid and South Summit, receiving 2000 \euro\ in funding
+% \end{itemize}
+
+\begin{cvitemizeentry}%
+  {DevOps Engineer \& Package Maintainer}
+  {July 2023~--~Oct 2023}
+  {NixOS Foundation}
+  {Open-source community with 3.3k+ contributors}
+  {Remote, Europe}
+  \item Maintained 5+ \highlight{open-source packages} (Python, PHP, Rust) using declarative package management, Nix.
+  \item Collaborated with 10+ engineers on technical discussions, improving software reliability and security.
+\end{cvitemizeentry}
+
+% \begin{cvitemizeentry}%
+% {Microsoldering Repair Service} % Job Title
+% {} % Organization
+% {} % Description
+% {} % Location
+% {Sept 2019~--~Sept 2023} % Date(s)
+%     \item Self-taught microsoldering technician, repairing 1000+ devices across Spain and \highlight{building a 5-figure business}
+% \end{cvitemizeentry}
+
+% **************************************************
+% Languages
+% **************************************************
+\section{Languages}
+
+Spanish (Native), English (C1), German (B1)
+
+% **************************************************
+% Additional Information
+% **************************************************
+\section{Additional Information}
+
+\begin{itemize}
+  \item Programming since age 12; strong foundation in \highlight{software development, distributed computing, and cloud computing}.
+  \item Traveled to 20+ countries, cultivating cross-cultural communication and collaboration skills.
+\end{itemize}
+
+% **************************************************
+% Research Interests
+% **************************************************
+\section{Research Interests: CXL-Based Disaggregated Memory for Serverless LLM Inference}\label{sec:research}
+
+\highlight{Modern cloud infrastructure faces critical memory bottlenecks that limit distributed application performance.} AWS services encounter cold start latency ($\sim$100--500ms in serverless platforms), resource stranding (compute and memory cannot scale independently), and inefficient state sharing across nodes. Current solutions relying on disk storage (100$\mu$s latency) or network-based approaches (1--5$\mu$s with RDMA) create I/O bottlenecks for memory-intensive workloads. \highlight{Compute Express Link (CXL)~ transforms this landscape through memory pooling at 200--500ns latency}~, enabling sub-10ms failover~. Microsoft Azure's production deployment of CXL-enabled VMs~ demonstrates commercial viability, while Amazon's initiatives, as far as I have seen internally, remain primarily hardware-focused~, presenting substantial research opportunity.
+
+\highlight{I propose investigating CXL-based disaggregated memory as a solution to cost-effective serverless Large Language Model (LLM) inference}, a growing challenge for AWS services (Bedrock, SageMaker, Lambda). Current serverless platforms face prohibitive memory overhead~, particularly severe for LLM workloads with 7B-70B+ parameter models and KVCache requirements. Recent breakthrough research (Beluga~, accepted at SIGMOD'26) demonstrated 89.6\% Time-To-First-Token reduction and 7.35$\times$ throughput improvement through CXL memory architectures, improvements that could fundamentally enable economically viable serverless LLM inference.
+
+Building on my work supervising a Master's thesis on carbon-efficient serverless orchestration, I would want to develop a CXL-enabled memory pooling prototype for AWS Lambda LLM inference workloads. The research will leverage CXL emulation platforms (QEMU or CXL development hardware if available) to implement persistent warm state sharing for model weights and KVCache across function invocations. Evaluation will focus on production-relevant workloads (GPT, LLaMA variants), quantifying cold start reduction (target: 500ms-2s baseline to <100ms), memory utilization efficiency through weight deduplication, and throughput improvements versus conventional Lambda architectures. Cost-performance analysis will examine bottlenecks from CXL switch congestion, coherence overhead, and memory access patterns to establish economic viability at scale.
+
+\highlight{Deliverables}: Working CXL-based serverless LLM prototype, comprehensive performance evaluation with cost analysis benchmarked against baseline Lambda, and production integration recommendations for AWS services. 
+
+\highlight{Impact}: Directly addresses the cost barrier preventing widespread serverless LLM adoption while positioning Amazon competitively against Azure's CXL deployment. My experience building distributed systems at Amazon combined with research at CORES Lab uniquely positions me to bridge cutting-edge CXL research with AWS production infrastructure requirements. 
+
+\highlight{Motivation}: In the past weeks, I have been trying to use Amazon Bedrock in the internal project I am working on (Helios Alchemist~). The problem I am facing is latency and availability problems for serverless bedrock models. I think this contribution can help Bedrock and the future of LLM inference to be more cost effective and scalable.
+
+% **************************************************
+% References
+% **************************************************
 
 \end{document}

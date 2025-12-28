@@ -8,8 +8,8 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
-    moderncv = {
-      url = "github:moderncv/moderncv";
+    template = {
+      url = "github:andres-nav/templates";
       flake = false;
     };
   };
@@ -25,23 +25,37 @@
           texlive-combined = pkgs.texliveBasic.withPackages (
             ps: with ps; [
               pgf # provides tikz.sty
+
               xcolor
               cm-super
               arydshln
               multirow
-              microtype
               fontawesome5
+
+              biber
+              eurosym
+              parskip
+              ragged2e
+              ifmtarg
+              xstring
+              tcolorbox
+              tikzfill
+              biblatex
+              xifthen
+              fontspec
+              luatex
+              enumitem
+              microtype
             ]
           );
         in
         {
           packages.default = pkgs.callPackage ./default.nix {
             inherit texlive-combined;
-            inherit (inputs) moderncv;
+            inherit (inputs) template;
           };
 
           devShells.default = pkgs.mkShellNoCC {
-            TEXINPUTS = ".:${inputs.moderncv}:";
             packages = [
               texlive-combined
               pkgs.texlab
