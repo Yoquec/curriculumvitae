@@ -20,15 +20,31 @@
       systems = (import inputs.systems);
       perSystem =
         { pkgs, self', ... }:
+        let
+          # See: https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/texlive.section.md#users-guide-experimental-new-interface-sec-language-texlive-user-guide-experimental
+          texlive-combined = pkgs.texliveBasic.withPackages (
+            ps: with ps; [
+              pgf # provides tikz.sty
+              xcolor
+              cm-super
+              arydshln
+              multirow
+              microtype
+              fontawesome5
+            ]
+          );
+        in
         {
           packages.default = pkgs.callPackage ./default.nix {
+            inherit texlive-combined;
             inherit (inputs) moderncv;
           };
 
           devShells.default = pkgs.mkShellNoCC {
-            packages = with pkgs; [
-              texlive.combined.scheme-full
-              texlab
+            TEXINPUTS = ".:${inputs.moderncv}:";
+            packages = [
+              texlive-combined
+              pkgs.texlab
             ];
           };
         };

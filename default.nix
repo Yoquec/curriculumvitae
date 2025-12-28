@@ -1,7 +1,7 @@
 {
   lib,
   stdenvNoCC,
-  texlive,
+  texlive-combined,
   moderncv,
 }:
 
@@ -21,7 +21,7 @@ stdenvNoCC.mkDerivation {
   };
 
   buildInputs = [
-    texlive.combined.scheme-full
+    texlive-combined
   ];
 
   buildPhase = ''
