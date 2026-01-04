@@ -20,22 +20,6 @@
         "type": "github"
       }
     },
-    "moderncv": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1757184859,
-        "narHash": "sha256-ZqmaDtqEtcHfil0rSFBHd0nf98oCe2AK8jrAz63zGcU=",
-        "owner": "moderncv",
-        "repo": "moderncv",
-        "rev": "ee076d39f6b4b82c24e1847e7f2c47e1eeaded8b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "moderncv",
-        "repo": "moderncv",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1766651565,
@@ -55,7 +39,6 @@
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "moderncv": "moderncv",
         "nixpkgs": "nixpkgs",
         "systems": "systems"
       }

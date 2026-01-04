@@ -1,18 +1,19 @@
 % Minimal moderncv example to test build
-\documentclass[11pt,a4paper,sans]{moderncv}
+\documentclass[11pt,a4paper,lmodern]{moderncv}
 
 % moderncv themes
-\moderncvstyle{classic} % style: 'casual', 'classic', 'banking', 'oldstyle', 'fancy'
-\moderncvcolor{blue}    % color: 'blue', 'orange', 'green', 'red', 'purple', 'grey', 'black'
+\moderncvstyle{banking}
+\moderncvcolor{black}
 
 % Character encoding
 \usepackage[utf8]{inputenc}
+\usepackage{bookmark}
 
 % Adjust page margins
-\usepackage[scale=0.75]{geometry}
+\usepackage[scale=0.90]{geometry}
 
 % Personal data
-\name{John}{Doe}
+\name{Alvaro}{Viejo Alonso}
 \title{Software Engineer}
 \address{123 Main Street}{12345 City}{Country}
 \phone[mobile]{+1~(234)~567~890}
@@ -20,6 +21,14 @@
 \homepage{www.johndoe.com}
 \social[linkedin]{johndoe}
 \social[github]{johndoe}
+
+\hypersetup{
+	pdfauthor={Alvaro Viejo Alonso},
+	pdftitle={Alvaro Viejo Alonso's Curriculum Vitae},
+    pdfsubject={},
+	pdfkeywords={CV, Alvaro Viejo Alonso, Amazon, Cloud Computing, Serverless},
+	hidelinks
+}
 
 \begin{document}
 

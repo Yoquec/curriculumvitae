@@ -2,7 +2,6 @@
   lib,
   stdenvNoCC,
   texlive-combined,
-  moderncv,
 }:
 
 let
@@ -25,8 +24,6 @@ stdenvNoCC.mkDerivation {
   ];
 
   buildPhase = ''
-    # Make moderncv files available to LaTeX
-    export TEXINPUTS=".:${moderncv}:"
     pdflatex -interaction=nonstopmode cv.tex
   '';
 
