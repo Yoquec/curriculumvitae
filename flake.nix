@@ -18,13 +18,14 @@
           texlive-combined = pkgs.callPackage ./texlive.nix { };
         in
         {
-          packages.default = pkgs.callPackage ./default.nix {
+          packages.default = pkgs.callPackage ./. {
             inherit texlive-combined;
           };
 
           devShells.default = pkgs.mkShellNoCC {
             packages = [
               texlive-combined
+              pkgs.just
               pkgs.texlab
             ];
           };

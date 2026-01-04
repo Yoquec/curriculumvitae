@@ -1,5 +1,6 @@
 {
   lib,
+  just,
   stdenvNoCC,
   texlive-combined,
 }:
@@ -15,20 +16,20 @@ stdenvNoCC.mkDerivation {
     root = ./.;
     fileset = fs.unions [
       ./cv.tex
-      # Add other files as needed (e.g., images, .cls files)
+      ./justfile
     ];
   };
 
   buildInputs = [
+    just
     texlive-combined
   ];
 
   buildPhase = ''
-    pdflatex -interaction=nonstopmode cv.tex
+    just build
   '';
 
   installPhase = ''
-    mkdir -p $out
-    cp cv.pdf $out/
+    just install $out
   '';
 }
