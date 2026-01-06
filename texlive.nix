@@ -7,5 +7,6 @@ texliveBasic.withPackages (
     cm-super # provides font family
     pgf # provides tikz.sty
     bookmark # provides newer implementation for single-pass
+    luatex # luatex implementation for academicons
   ]
 )
