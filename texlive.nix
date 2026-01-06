@@ -4,9 +4,13 @@
 texliveBasic.withPackages (
   ps: with ps; [
     moderncv # provides template
-    cm-super # provides font family
     pgf # provides tikz.sty
     bookmark # provides newer implementation for single-pass
     luatex # luatex implementation for academicons
+
+    xcharter # Charter font with LaTeX support
+    xkeyval # xcharter dependency
+    xstring # xcharter dependency
+    fontaxes # xcharter dependency
   ]
 )
