@@ -5,7 +5,7 @@ texliveBasic.withPackages (
   ps: with ps; [
     moderncv # provides template
     pgf # provides tikz.sty
-    bookmark # provides newer implementation for single-pass
+    bookmark # provides newer implementation for single-pass reference resolution
     luatex # luatex implementation for academicons
 
     xcharter # Charter font with LaTeX support

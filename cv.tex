@@ -9,11 +9,15 @@
 \renewcommand*{\namefont}{\fontsize{26}{30}\mdseries\upshape}
 \renewcommand*{\titlefont}{\fontsize{24}{18}\mdseries\upshape}
 
+% Define custom color for highlights
+\definecolor{cvblue}{RGB}{20, 55, 120}
+\newcommand{\highlight}[1]{\textcolor{cvblue}{\textbf{#1}}}
+
 % Character encoding
 \usepackage[utf8]{inputenc}
 \usepackage{bookmark}
 
-% Use Charter font
+% Use Charter serif font
 \usepackage{XCharter}
 
 % Adjust page margins
@@ -42,32 +46,63 @@
 
 \makecvtitle
 
+\vspace{-10pt}
+\begin{quote}
+\textit{Software Engineer bridging artificial intelligence and software architecture across the stack. Background in Data Science with specialization in \highlight{AI/ML}, now building distributed systems and cloud infrastructure. Currently focused on reliable systems programming with \highlight{Rust} and reproducible builds with \highlight{Nix}.}
+\end{quote}
+\vspace{-5pt}
+
 \section{Experience}
-\cventry{2020--Present}{Software Engineer}{Tech Company}{City}{}{
+\cventry{Mar 2025--Present}{\textbf{Amazon}}{Software Development Engineer}{Madrid, Spain}{CF ACES Team}{
   \begin{itemize}
-    \item Developed and maintained web applications
-    \item Collaborated with cross-functional teams
-    \item Improved system performance by 30\%
+      \item Developed \highlight{robotic cell communication software} in \textit{Golang} following industry protocols, enabling \highlight{real-time coordination} between robotic cells and the Amazon Warehouse Management System using \textit{Docker} containerization.
+    \item \highlight{Architected communication protocol} enabling robotic vendor integration with Amazon's warehouse management system, coordinating development across internal and external engineering teams.
+    \item Built \textit{React}-based web frontends for warehouse operations tools, deployed to Amazon fulfillment centers \highlight{globally} across \highlight{North America}, \highlight{South America}, and \highlight{Europe}.
+    \item \textbf{Technologies}: \textit{Golang}, \textit{Java}, \textit{Typescript}, \textit{React}, \textit{Docker}, \textit{AWS Lambda}, \textit{AWS ECS}, \textit{AWS S3}.
   \end{itemize}
 }
 
-\cventry{2018--2020}{Junior Developer}{Startup Inc}{City}{}{
+\cventry{Jan 2025--Mar 2025}{\textbf{Amazon}}{Software Development Engineer (PBC)}{Madrid, Spain}{Helios Team}{
   \begin{itemize}
-    \item Built RESTful APIs
-    \item Implemented CI/CD pipelines
+    \item \highlight{Led the design and implementation} of monitoring and auditing system for solar energy devices across \highlight{100+ Amazon facilities}.
+    \item Built \highlight{CI/CD pipelines} for software deployment with automated testing, monitoring, and rollback capabilities, achieving \highlight{99.9\% system uptime}.
+    \item Built scalable \highlight{serverless Web API} for solar device data visualization, serving monitoring and auditing dashboards across Amazon's facility network.
+    \item \textbf{Technologies}: \textit{Python}, \textit{Java}, \textit{Typescript}, \textit{AWS Lambda}, \textit{AWS API Gateway}, \textit{DynamoDB}, \textit{AWS S3}, \textit{AWS CloudWatch}.
+  \end{itemize}
+}
+
+\cventry{Jan 2024--Jan 2025}{\textbf{Amazon}}{Software Development Engineer (PBC)}{Madrid, Spain}{RIS Team}{
+  \begin{itemize}
+    \item Initiated development of native C\# (\textit{.NET Framework}) application to integrate \highlight{Industrial Programmable Logic Controllers (PLCs)} with AWS cloud infrastructure for backup and auditing.
+    \item Implemented \highlight{CI/CD pipelines} using AWS CDK for \highlight{full-stack PLC management application} (\textit{React} frontend and API), reducing operational load by \highlight{80\%}.
+    \item \textbf{Technologies}: \textit{C\#}, \textit{.NET}, \textit{.NET Framework}, \textit{Typescript}, \textit{React}, \textit{GraphQL}, \textit{AWS CDK}, \textit{AWS RDS}, \textit{AWS S3}, \textit{AWS CodeStar}.
+  \end{itemize}
+}
+
+\cventry{Jun 2023--Dec 2024}{\textbf{Amazon}}{Data Engineer Intern}{Madrid, Spain}{RIS Team}{
+  \begin{itemize}
+      \item Built \highlight{ETL pipelines} using \textit{AWS Lambda} and \textit{Python} to collect data from Industrial Programmable Logic Controllers (PLCs) across \highlight{100+ facilities in Europe}.
+      \item Built \highlight{\textit{GraphQL} API layer} in \textit{JavaScript} to bridge operational device data in \textit{AWS RDS} with \textit{React} command and control frontend.
+    \item \textbf{Technologies}: \textit{Python}, \textit{JavaScript}, \textit{Typescript}, \textit{React}, \textit{GraphQL}, \textit{AWS Lambda}, \textit{AWS RDS}, \textit{AWS S3}.
   \end{itemize}
 }
 
 \section{Education}
-\cventry{2014--2018}{Bachelor of Science in Computer Science}{University Name}{City}{\textit{GPA: 3.8/4.0}}{}
+\cventry{2020--2024}{\textbf{Universidad Carlos III de Madrid}}{Bachelor of Engineering in Data Science}{Madrid, Spain}{Among Spain's top engineering universities}{
+    \begin{itemize}
+      \item Grade: \highlight{7.89/10} (GPA: \highlight{3.48/4.0})
+      \item Received \highlight{honors distinction} in the program's flagship \highlight{Deep Learning} course, plus 2 additional courses.
+      \item Specialized in \highlight{Generative AI}, \highlight{Machine Learning}, \highlight{Programming}, \highlight{Bayesian Statistics}, and \highlight{exploratory data analysis}.
+      \item \textbf{Bachelor Thesis}: \link[\textit{Design and Implementation of an Open-Source Large Language Model Platform with Retrieval-Augmented Generation Capabilities}]{https://github.com/Yoquec/final-thesis/}.
+      \item \textbf{Technologies}: \textit{Python}, \textit{R}, \textit{Kotlin}, \textit{PyTorch}, \textit{Linux}, \textit{git}, \textit{GitHub}.
+    \end{itemize}
+}
 
-\section{Skills}
-\cvitem{Languages}{Python, JavaScript, Go, Java}
-\cvitem{Frameworks}{React, Node.js, Django, Spring}
-\cvitem{Tools}{Docker, Kubernetes, Git, AWS}
-
-\section{Projects}
-\cvitem{Project A}{Open-source tool for automated deployment, 500+ GitHub stars}
-\cvitem{Project B}{Personal blog with 10k monthly visitors}
+\section{Languages}
+\cvitem{}{%
+  \textbf{Spanish}: Native proficiency \hfill $\cdot$ \hfill
+  \textbf{English}: Bilingual proficiency \hfill $\cdot$ \hfill
+  \textbf{Chinese}: Elementary proficiency
+}
 
 \end{document}
