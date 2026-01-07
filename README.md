@@ -8,6 +8,10 @@
 > A short account of one's career and qualifications prepared typically by an applicant for a position.
 
 # Curriculum Vitae 📜
+<p align="center">
+  <img width="70%" alt="image" src="https://github.com/user-attachments/assets/f5731294-d042-419c-92e4-1f357724fd28" />
+  <p align="center">Download the latest version of the document <a href="https://github.com/Yoquec/curriculumvitae/releases/latest/download/cv.pdf"><strong>here</strong></a>.</p>
+</p>
 
 ## Building 🔨
 
