@@ -6,7 +6,6 @@ texliveBasic.withPackages (
     moderncv # provides template
     pgf # provides tikz.sty
     bookmark # provides newer implementation for single-pass reference resolution
-    luatex # luatex implementation for academicons
 
     xcharter # Charter font with LaTeX support
     xkeyval # xcharter dependency
